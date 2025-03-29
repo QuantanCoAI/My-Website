@@ -52,3 +52,24 @@ nav a {
 .read-more:hover {
     background: #0056b3;
 }
+.contact-info {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: left;
+    max-width: 600px;
+    margin: auto;
+}
+
+.contact-info p {
+    margin: 10px 0;
+}
+
+.contact-info a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}

@@ -139,3 +139,21 @@ footer {
     color: #007BFF;
     text-decoration: none;
 }
+.slider-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.slider-buttons button {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #444;
+    color: white;
+    border-radius: 5px;
+}
+.slider-buttons button:hover {
+    background-color: #666;
+}
+

@@ -30,10 +30,21 @@
             margin: auto;
             padding: 20px;
         }
+        .blog-slider {
+            position: relative;
+            overflow: hidden;
+        }
         .blog-post {
-            border-bottom: 1px solid #ddd;
-            padding: 10px 0;
+            display: none;
             text-align: left;
+        }
+        .active {
+            display: block;
+        }
+        .slider-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
         }
         footer {
             background-color: #333;
@@ -47,40 +58,52 @@
 </head>
 <body>
     <header>
-        <h1>Welcome to Shreecha Dubey's Blogs</h1>
+        <h1>Welcome to Shreecha Dubey's Website</h1>
     </header>
     <nav>
-        <a href="#">Home</a>
+        <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="blog.html">Blog</a>
         <a href="contact.html">Contact</a>
     </nav>
     <div class="container">
         <h2>Latest Blog Posts</h2>
-        <div class="blog-post">
-            <h3>World War 3: Chances and Global Trends</h3>
-            <p>Recent geopolitical tensions and conflicts have raised concerns about the possibility of a third world war. Surveys and statistical data provide insights into public perception and the factors fueling these fears.</p>
-            
-            <h4>Public Perception of World War III</h4>
-            <p>A survey by the Atlantic Council (2025) revealed that 40% of respondents anticipate a world war within the next decade, with 48% expecting nuclear weapons to be used. A YouGov poll in the UK (2024) found that 53% of Britons believe a world war is likely within 5-10 years.</p>
-            
-            <h4>Geopolitical Tensions and Conflicts</h4>
-            <ul>
-                <li><strong>Russia-Ukraine Conflict:</strong> Increasing threats of nuclear retaliation and NATO involvement.</li>
-                <li><strong>China-Taiwan Relations:</strong> Rising tensions with the potential for U.S. intervention.</li>
-                <li><strong>Middle East Instability:</strong> Escalating conflicts, particularly involving Israel, Palestine, and Iran.</li>
-            </ul>
-            
-            <h4>Potential Consequences of a Global Conflict</h4>
-            <p>Studies indicate that a full-scale nuclear war could result in over 5 billion deaths due to nuclear winter and famine. Even smaller conflicts could lead to widespread devastation.</p>
-            
-            <h4>Conclusion</h4>
-            <p>Understanding these threats and addressing them through diplomatic efforts is crucial to preventing catastrophic global conflict.</p>
-            <p>For more analysis, watch: <a href="https://www.youtube.com/watch?v=UebsZIt_XgI">How Likely Is World War 3?</a></p>
+        <div class="blog-slider">
+            <div class="blog-post active">
+                <h3>World War 3: Chances and Global Trends</h3>
+                <p>Recent geopolitical tensions and conflicts have raised concerns...</p>
+                <a href="blog-worldwar3.html">Read More</a>
+            </div>
+            <div class="blog-post">
+                <h3>The Future of AI in Cybersecurity</h3>
+                <p>Artificial Intelligence is transforming cybersecurity...</p>
+                <a href="blog-cybersecurity.html">Read More</a>
+            </div>
+        </div>
+        <div class="slider-buttons">
+            <button onclick="prevSlide()">Previous</button>
+            <button onclick="nextSlide()">Next</button>
         </div>
     </div>
     <footer>
         <p>&copy; 2025 Shreecha Dubey. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        let currentIndex = 0;
+        const posts = document.querySelectorAll('.blog-post');
+        function showSlide(index) {
+            posts.forEach(post => post.classList.remove('active'));
+            posts[index].classList.add('active');
+        }
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % posts.length;
+            showSlide(currentIndex);
+        }
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + posts.length) % posts.length;
+            showSlide(currentIndex);
+        }
+    </script>
 </body>
 </html>
